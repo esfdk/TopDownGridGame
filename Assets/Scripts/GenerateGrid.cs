@@ -14,12 +14,12 @@ public class GenerateGrid : MonoBehaviour
 			for(var j = 0; j < y; j++)
 			{
 				var go = new GameObject();
-				go.transform.parent = this.transform;
+				go.transform.parent = this.transform.FindChild("GridObjects").transform;
 				go.name = i + ", " + j;
 				go.transform.localPosition = new Vector3(i, 0, j);
 				go.transform.localScale = new Vector3(1,0.1f,1);
 				var bc = go.AddComponent("BoxCollider") as BoxCollider;
-				bc.size = new Vector3(1, 1, 1);
+				bc.size = new Vector3(1, 0.25f, 1);
 				go.AddComponent<MouseClick>();
 				go.tag = "GridSquare";
 				grid[i,j] = go;
